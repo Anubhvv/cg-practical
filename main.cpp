@@ -1,27 +1,4 @@
-#include<iostream>
-#include<math.h>
-#include<bits/stdc++.h>
-#include<graphics.h>
-using namespace std;
 
-double A[3][3]={0.0};
-double f=1;
-
-
-void m(double re[3][3], double p[3][3],double result[3][3])
-{
-	for(int i=0;i<3;i++)
-	{
-		for(int j=0;j<3;j++)
-		{
-			double z=0;
-			for(int k=0;k<3;k++)
-			{
-				z = z +(re[i][k]*p[k][j]);
-			}
-			result[i][j]=z;
-
-		}
 
 	}
 for(int i=0;i<3;++i)
@@ -90,38 +67,6 @@ void shear(double A[3][3],double Shx,double Shy,int n)
 {
 
      if(n>1)
-        line(A[0][0],A[1][0],A[0][1],A[1][1]);
-         if(n>2)
-         {
-
-           line(A[0][0],A[1][0],A[0][2],A[1][2]);
-            line(A[0][1],A[1][1],A[0][2],A[1][2]);}
-     double SH[3][3] = { { 1, Shx, 0 },
-                    { Shy, 1, 0 },
-                    { 0, 0, 1 } };
-
-            double result[3][3];
-
-    m(SH,A,result);
-
-     if(n>1)
-        line(A[0][0],A[1][0],A[0][1],A[1][1]);
-         if(n>2)
-         {
-
-           line(A[0][0],A[1][0],A[0][2],A[1][2]);
-            line(A[0][1],A[1][1],A[0][2],A[1][2]);}
-
-}
-
-void scale(double A[3][3],double Sx,double Sy,int n)
-{
-     double S[3][3] = { { Sx, 0, 0 },
-                    { 0, Sy, 0 },
-                    { 0, 0, 1 } };
-
-
-            double result[3][3];
 
     m(S,A,result);
 
@@ -200,24 +145,7 @@ void reff(double e,double c)
 
 
 
-}
-void refs(double r,int n)
-{
-    f=0;
-    translation(A,-r,0,1);
-    refy(A,n);
-    translation(A,r,0,1);
-    cout<<A[0][0]<<" "<<A[1][0]<<endl;
 
-
-
-}
-
-int main()
-{
-   initwindow(1000,800);
-    A[2][0]=A[2][1]=A[2][2]=1;
-     int n,y;
 
    char g='y';
    int v=0;
@@ -229,12 +157,7 @@ int main()
        cout<<" 2. Rotation"<<endl;
        cout<<" 3. Scaling"<<endl;
        cout<<" 4. Shearing"<<endl;
-       cout<<" 5. reflection about x axis"<<endl;
-       cout<<"6. reflection about y axis"<<endl;
-       cout<<" 7. reflection about ax+by=c:"<<endl;
-       cin>>y;
-       if(v==0)
-       {  cout<<" no. of points ? "<<endl;
+       cout<<" 5. re
    cin>>n;
 for(int j=0;j<n;++j)
     for(int i=0;i<2;++i)
@@ -295,22 +218,7 @@ for(int j=0;j<n;++j)
        }
        else{
          cout<<"Enter a,b and c:"<<endl;
-
-         double a,b,c,g,h;
-         cin>>a>>b>>c;
-            if(b!=0)
-         reff(-1*a/b,c/b);
-         else
-         {
-             refs(c/a,n);
-
-
-         }
-
-
-       }
-
-       cout<<"Want to perform further operations on this point?"<<endl;
+form further operations on this point?"<<endl;
        cin>>g;
        if(g=='n'||g=='N')
         break;
